@@ -1,0 +1,73 @@
+/* Background Image */
+body {
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #d63384;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    padding: 50px;
+}
+
+/* Heart GIF */
+.heart-gif {
+    width: 100px; /* Adjust size */
+    height: auto;
+}
+
+/* Message Box (Pink Blended Box) */
+.message-box {
+    background: rgba(255, 182, 193, 1.9); /* Baby pink with slight transparency */
+    padding: 30px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Text inside the message box */
+.message {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #d63384; /* Dark pink text */
+}
+
+/* Buttons */
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #e91e63;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+/* Bee Animation */
+.bee {
+    width: 90px;
+    height: auto;
+    background: none;
+}
+body {
+    cursor: url('heart-cursor.png'), auto;
+}
