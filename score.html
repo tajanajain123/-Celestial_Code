@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Score ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="loveSong" src="tum.mp3" autoplay loop></audio>
+
+    <button id="fullscreen-btn">Tap to View Full Screen</button>
+
+    <div class="container">
+        <h1>Your Love Score ❤️</h1>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Function to enter full-screen mode
+        function goFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+            document.getElementById("fullscreen-btn").style.display = "none"; // Hide button after entering full screen
+        }
+
+        // Attach event listener to the button
+        document.getElementById("fullscreen-btn").addEventListener("click", goFullScreen);
+
+        // Auto-fetch the stored score
+        let score = sessionStorage.getItem("score") || 0;
+        score = parseInt(score); // Ensure score is treated as a number
+        let message = "";
+
+        if (score >= 100) {
+            message = "Perfect Match! 💖 You know me too well!";
+            setTimeout(() => {
+                window.location.href = "good.html"; // Redirect to the good page
+            }, 3000);
+        } else {
+            message = "Oops! Do you even know me? 😅 Time to learn more!";
+            setTimeout(() => {
+                window.location.href = "punishment.html"; // Redirect to punishment page
+            }, 3000);
+        }
+
+        document.getElementById("result").innerText = `Your Score: ${score}/150\n${message}`;
+    </script>
+</body>
+</html>

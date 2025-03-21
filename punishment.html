@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology Letter</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fbe3e8;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        .letter {
+            font-size: 18px;
+            white-space: pre-wrap;
+            text-align: left;
+            border-left: 3px solid red;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        #okBtn {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+        #okBtn:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Oops! You Failed the Love Test 😢</h1>
+        <p>As punishment, you must send an apology letter!</p>
+        <div class="letter" id="apologyText"></div>
+        <button id="okBtn" onclick="sendApology()">OK, Send Apology</button>
+    </div>
+
+    <script>
+        function goFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+        }
+
+        function startTyping() {
+            let userName = prompt("Enter your name:") || "Someone"; // Ask for user's name
+
+            goFullScreen(); // Enter full-screen mode after prompt
+
+            const text = `Dear My Love,
+
+I am deeply sorry for failing this love test. 
+It seems I need to spend more time understanding you better. 
+I promise to listen more, pay attention, and be the best partner ever! 
+
+Please forgive me. I shall make it up to you soon.
+
+Forever Yours,
+${userName} ❤️`;
+
+            let i = 0;
+            function typeEffect() {
+                if (i < text.length) {
+                    document.getElementById("apologyText").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeEffect, 50);
+                } else {
+                    document.getElementById("okBtn").style.display = "block"; // Show button after typing
+                }
+            }
+            typeEffect();
+        }
+
+        function sendApology() {
+            let phoneNumber = "6361227284"; // Change this to your WhatsApp number
+            let encodedMessage = encodeURIComponent(document.getElementById("apologyText").innerText);
+            window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        }
+
+        window.onload = startTyping; // Start prompt & full screen on page load
+    </script>
+
+</body>
+</html>

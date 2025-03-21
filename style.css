@@ -7,33 +7,51 @@ body {
     color: #d63384;
     margin: 0;
     padding: 0;
+    background-color: #ffdde1;
 }
 
-/* Container */
 .container {
-    padding: 50px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 182, 193, 0.9); /* Light pink background */
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Heart GIF */
 .heart-gif {
-    width: 100px; /* Adjust size */
+    width: 120px; /* Slightly larger for better visibility */
     height: auto;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 /* Message Box (Pink Blended Box) */
 .message-box {
-    background: rgba(255, 182, 193, 1.9); /* Baby pink with slight transparency */
+    background: rgba(255, 182, 193, 0.9); /* Soft baby pink with slight transparency */
     padding: 30px;
     border-radius: 20px;
     display: inline-block;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 /* Text inside the message box */
 .message {
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: bold;
     color: #d63384; /* Dark pink text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Buttons */
@@ -50,24 +68,47 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #e91e63;
+    transform: scale(1.1);
+    background: #d43f50;
 }
 
 /* Footer */
 .footer {
     margin-top: 30px;
     font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
 }
 
 /* Bee Animation */
 .bee {
-    width: 90px;
+    width: 100px; /* Slightly bigger */
     height: auto;
-    background: none;
+    animation: fly 5s infinite linear;
 }
-body {
-    cursor: url('heart-cursor.png'), auto;
+
+/* Flying Bee Animation */
+@keyframes fly {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    25% { transform: translateX(50px) translateY(-30px) rotate(10deg); }
+    50% { transform: translateX(100px) translateY(0px) rotate(-10deg); }
+    75% { transform: translateX(150px) translateY(-30px) rotate(10deg); }
+    100% { transform: translateX(200px) translateY(0px) rotate(0deg); }
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }

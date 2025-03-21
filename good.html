@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Certificate</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .certificate {
+            width: 600px;
+            height: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            text-align: center;
+            border: 5px solid red;
+            position: relative;
+        }
+        h1 {
+            color: darkred;
+        }
+        .heart {
+            font-size: 50px;
+            color: red;
+        }
+        #loverName {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Love Certificate Generator 💖</h1>
+        <button class="btn" onclick="askName()">Generate Certificate</button>
+    </div>
+
+    <div class="certificate" id="certificate" style="display: none;">
+        <h1>❤️ Certificate of Appreciation ❤️</h1>
+        <p>Presented to</p>
+        <h2 id="loverName"></h2>
+        <p>For being truly special and amazing! 🎉 💖</p>
+        <p>"You know me too well! You have won my heart!"</p>
+        <div class="heart">💞💖💞</div>
+    </div>
+
+    <button class="btn" id="downloadBtn" style="display: none;" onclick="downloadCertificate()">Download Certificate</button>
+
+    <script>
+        function askName() {
+            let userName = prompt("Enter your name for the certificate:");
+            if (userName) {
+                document.getElementById("loverName").innerText = userName;
+                document.getElementById("certificate").style.display = "block";
+                document.getElementById("downloadBtn").style.display = "block";
+            }
+        }
+
+        function downloadCertificate() {
+            let element = document.getElementById("certificate");
+            html2canvas(element).then(canvas => {
+                let link = document.createElement("a");
+                link.download = "Love_Certificate.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+
+    <!-- Include html2canvas Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>

@@ -3,10 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Calculator</title>
-    <script src="second.js"></script>
+    <title>Love Quiz ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="second.js" defer></script>
+    <style>
+        #timer {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            background: #ff4d4d;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
 </head>
 <body>
-    
+    <audio id="loveSong" src="tum.mp3" loop></audio>
+
+    <div class="container">
+        <h1>Love Quiz ❤️</h1>
+        <p id="question">Are you ready for the Love Quiz?</p>
+        <button id="start-btn">Start Quiz</button>
+        <div id="options" style="display: none;"></div>
+    </div>
+
+    <p id="timer">Time Left: <span id="time-left">5:00</span></p>
+
+    <script>
+        const startBtn = document.getElementById("start-btn");
+        const loveSong = document.getElementById("loveSong");
+        const timerElement = document.getElementById("time-left");
+
+        let timeLeft = 300; // 5 minutes in seconds
+        let timer;
+
+        startBtn.addEventListener("click", function () {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+
+            loveSong.play();
+            startBtn.style.display = "none";
+            document.getElementById("options").style.display = "block";
+
+            // Start countdown
+            timer = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
+                    timerElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+                } else {
+                    clearInterval(timer);
+                    window.location.href = "score.html"; // Redirect to score page
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
