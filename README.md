@@ -21,7 +21,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/your-username/love-quiz.git
+git clone https://github.com/tajanajain123/-Celestial_Code.git
 
 Open index.html in a browser.
 
