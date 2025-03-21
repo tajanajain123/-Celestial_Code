@@ -32,6 +32,8 @@
 
     <div class="container">
         <h1>Love Quiz ❤️</h1>
+         
+     
         <p id="question">Are you ready for the Love Quiz?</p>
         <button id="start-btn">Start Quiz</button>
         <div id="options" style="display: none;"></div>
@@ -55,7 +57,8 @@
             loveSong.play();
             startBtn.style.display = "none";
             document.getElementById("options").style.display = "block";
-
+              
+            loadQuestion();
             // Start countdown
             timer = setInterval(() => {
                 if (timeLeft > 0) {

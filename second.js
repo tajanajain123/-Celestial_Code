@@ -15,12 +15,14 @@ window.onload = function () {
         sessionStorage.removeItem("playMusic"); // Prevent replay on refresh
     }
     
-    if (document.getElementById("question")) {
+    if (!document.getElementById("start-btn")) {
+      
         loadQuestion();
     }
 };
 
 const questions = [
+    
     { question: "What is my favorite color?", options: ["Blue", "Red", "Black", "Pink"], answer: "Blue" },
     { question: "What’s my birth month?", options: ["January", "March", "September", "November"], answer: "September" },
     { question: "Do I prefer traveling or staying at home?", options: ["Traveling", "Home", "Both", "Depends"], answer: "Home" },
